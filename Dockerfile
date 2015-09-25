@@ -3,12 +3,9 @@ FROM debian
 MAINTAINER Vensder vensder@gmail.com
 
 RUN apt-get update && apt-get install -y \
-	python-dev \
-	openssl \
-	python-openssl \
-	python-pyasn1 \
 	python-twisted \
-	subversion && \
+	subversion \
+	--no-install-recommends && \
 useradd -d /home/kippo -s /bin/bash -m kippo && \
 cd /home && \
 svn checkout http://kippo.googlecode.com/svn/trunk/ ./kippo && \
