@@ -1,4 +1,4 @@
-# Kippo SSH Honeypot based on Debian image (196 Mb).
+# Dockerizing Kippo SSH Honeypot (image 196 Mb) based on Debian.
 
 Move your real ssh port from default 22 to another (for ex. 22000)
 
