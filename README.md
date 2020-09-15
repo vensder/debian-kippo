@@ -1,4 +1,4 @@
-# Dockerizing Kippo SSH Honeypot (image 196 Mb) based on Debian.
+# Dockerizing Kippo SSH Honeypot based on Debian.
 
 UPD: The original Kippo project is outdated and not compatible with the latest libraries and protocols. See actual fork https://github.com/cowrie/cowrie
 
