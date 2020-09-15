@@ -2,17 +2,26 @@ FROM debian
 
 MAINTAINER Vensder vensder@gmail.com
 
-RUN apt-get update && apt-get install -y \
-	python-twisted \
-	subversion \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+	python-pip \
+	python-setuptools \
+	python-dev \
+	python-pyasn1 \
+	build-essential \
+	git \
+	ca-certificates \
 	--no-install-recommends && \
+update-ca-certificates && \
+pip install twisted==15.1.0 && \
+pip install pycrypto && \
 useradd -d /home/kippo -s /bin/bash -m kippo && \
-cd /home && \
-svn checkout http://kippo.googlecode.com/svn/trunk/ ./kippo && \
-apt-get autoremove -y subversion && \
+cd /home/kippo && \
+git clone https://github.com/desaster/kippo.git tmp && \
+mv tmp/* . && \
+apt-get autoremove -y git && \
 cd /home/kippo && \
 mv kippo.cfg.dist kippo.cfg && \
-rm -rf /home/kippo/.svn && \
+rm -rf /home/kippo/.git && \
 chown -R kippo:kippo /home/kippo && \
 apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
