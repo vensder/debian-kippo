@@ -1,6 +1,6 @@
-FROM debian
+FROM debian:buster-slim
 
-MAINTAINER Vensder vensder@gmail.com
+MAINTAINER vensder vensder@gmail.com
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 	python-pip \
@@ -17,8 +17,8 @@ pip install pycrypto && \
 useradd -d /home/kippo -s /bin/bash -m kippo && \
 cd /home/kippo && \
 git clone https://github.com/desaster/kippo.git tmp && \
-mv tmp/* . && \
-apt-get autoremove -y git && \
+mv tmp/* . && rm -rf tmp/ && \
+apt-get autoremove -y git python-pip python-setuptools python-dev build-essential && \
 cd /home/kippo && \
 mv kippo.cfg.dist kippo.cfg && \
 rm -rf /home/kippo/.git && \
