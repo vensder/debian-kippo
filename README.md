@@ -1,5 +1,7 @@
 # Dockerizing Kippo SSH Honeypot (image 196 Mb) based on Debian.
 
+UPD: The original Kippo project is outdated and not compatible with the latest libraries and protocols. See actual fork https://github.com/cowrie/cowrie
+
 Move your real ssh port from default 22 to another (for ex. 22000)
 
 ##### Run this docker image by command:
